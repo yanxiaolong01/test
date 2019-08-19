@@ -1,0 +1,434 @@
+body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, textarea, select, p, dl, dt, dd, a, img, button, form, table, th, tr, td, tbody, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    font: 14px/1 "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, \\5FAE\8F6F\96C5\9ED1, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    border: 0 none;
+    outline: 0 none;
+}
+
+.cleaner:after,
+.cleaner:before {
+    display: table;
+    content: "";
+}
+
+.cleaner:after {
+    clear: both;
+}
+
+.cleaner {
+    zoom: 1;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+    height: 16px;
+    background-color: #fcfcfc;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* 清除浏览器默认样式 */
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form,
+fieldset, legend, button, input, textarea, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+body, button, input, select, textarea {
+    font: 14px/1 "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+address, cite, dfn, em, var {
+    font-style: normal;
+}
+
+code, kbd, pre, samp {
+    font-family: couriernew, courier, monospace;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover { /* text-decoration:underline; */
+    text-decoration: none;
+}
+
+sup {
+    vertical-align: text-top;
+}
+
+sub {
+    vertical-align: text-bottom;
+}
+
+legend {
+    color: #000;
+}
+
+fieldset, img {
+    border: 0;
+}
+
+button, input, select, textarea {
+    font-size: 100%;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+input, button, select, textarea {
+    outline: none;
+}
+
+textarea {
+    resize: none;
+}
+
+/* 禁用了文本的拖拉，尤其在谷歌下 */
+p {
+    text-align: justify;
+    text-justify: distribute;
+}
+
+/* 为了使文本段落左右两边对齐 */
+
+/* 禁用iPhone中Safari的字号自动调整 */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    /* 解决IOS默认滑动很卡的情况 */
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 禁止缩放表单 */
+input[type="submit"], input[type="reset"], input[type="button"], input {
+    resize: none;
+    border: none;
+}
+
+/* 取消链接高亮  */
+body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, textarea, select, p, dl, dt, dd, a, img, button, form, table, th, tr, td, tbody, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* 设置HTML5元素为块 */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+/* 图片自适应 */
+img {
+    width: auto;
+    height: auto;
+    width: auto \9; /* ie8 */
+    -ms-interpolation-mode: bicubic; /*为了照顾ie图片缩放失真*/
+}
+
+/*单行溢出*/
+.one-txt-cut {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/*多行溢出 手机端使用*/
+.txt-cut {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+/* 移动端点击a链接出现蓝色背景问题解决 */
+a:link, a:active, a:visited, a:hover {
+    /* background: none; */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+}
+
+/*main公共标题样式*/
+.main_title{
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    color: #333;
+    padding-bottom: 24px;
+    font-weight: 700;
+}
+.main_henggang{
+    width: 72px;
+    height: 4px;
+    margin: 0px auto 24px;
+    background-color: #d0a635;
+}
+.main_target{
+    width: 650px;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #777;
+    margin-bottom: 85px;
+}
+
+
+
+/* 清除浮动 ，左浮动，右浮动*/
+/*.clearfix:after{*/
+/*content: ".";*/
+/*display: block;*/
+/*height: 0;*/
+/*visibility: hidden;*/
+/*clear: both;*/
+/*}*/
+/*.clearfix{*/
+/*zoom: 1;*/
+/*}*/
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+/* 滚动条 */
+::-webkit-scrollbar-thumb {
+    background-color: #d5dad2;
+    height: 50px;
+    outline-offset: -2px;
+    outline: 2px solid #fff;
+    -webkit-border-radius: 5px;
+    border: 1px solid #fff;
+}
+
+/*---鼠标点击滚动条显示样式--*/
+::-webkit-scrollbar-thumb:hover {
+    background-color: #949494;
+    height: 50px;
+    -webkit-border-radius: 5px;
+}
+
+/*---滚动条大小--*/
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+/* 常用尺寸 */
+.w100 {
+    width: 100% !important;
+}
+
+.mh200 {
+    min-height: 200px;
+}
+
+.mh220 {
+    min-height: 220px;
+}
+
+.mh240 {
+    min-height: 240px;
+}
+
+.mh260 {
+    min-height: 260px;
+}
+
+.mh280 {
+    min-height: 280px;
+}
+
+.mh300 {
+    min-height: 300px;
+}
+
+.h200 {
+    height: 200px;
+    overflow: auto;
+}
+
+.h220 {
+    height: 220px;
+    overflow: auto;
+}
+
+.h240 {
+    height: 240px;
+    overflow: auto;
+}
+
+.h260 {
+    height: 260px;
+    overflow: auto;
+}
+
+.h280 {
+    height: 280px;
+    overflow: auto;
+}
+
+.h300 {
+    height: 300px;
+    overflow: auto;
+}
+
+.maxh200 {
+    max-height: 200px;
+    overflow: hidden;
+}
+
+.maxh220 {
+    max-height: 220px;
+    overflow: hidden;
+}
+
+.maxh240 {
+    max-height: 240px;
+    overflow: hidden;
+}
+
+.max260 {
+    max-height: 260px;
+    overflow: hidden;
+}
+
+.max280 {
+    max-height: 280px;
+    overflow: hidden;
+}
+
+.max300 {
+    max-height: 300px;
+    overflow: hidden;
+}
+
+.dn {
+    display: none;
+}
+
+/* 常用版心 */
+.wrap {
+    width: 1240px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* 常用阴影 */
+.shadowA, .shadowB, .shadowC {
+    -webkit-transition: all .35s;
+    -o-transition: all .35s;
+    transition: all .35s;
+}
+
+.shadowA {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 2px 10px 0px rgba(153, 153, 153, 0.3);
+    -webkit-box-shadow: 0px 2px 10px 0px rgba(153, 153, 153, 0.3);
+    -moz-box-shadow: 0px 2px 10px 0px rgba(153, 153, 153, 0.3);
+    -o-box-shadow: 0px 2px 10px 0px rgba(153, 153, 153, 0.3);
+}
+.shadowA_1 {
+    box-shadow: 0px 36px 30px 12px rgba(153, 153, 153, 0.3);
+    -webkit-box-shadow: 0px 36px 30px 12px rgba(153, 153, 153, 0.3);
+    -moz-box-shadow: 0px 36px 30px 12px rgba(153, 153, 153, 0.3);
+    -o-box-shadow: 0px 36px 30px 12px rgba(153, 153, 153, 0.3);
+}
+
+.shadowB {
+    background: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 0px 2px 0 rgba(0, 0, 0, .1);
+    -webkit-box-shadow: 0 0px 2px 0 rgba(0, 0, 0, .1);
+    -moz-box-shadow: 0 0px 2px 0 rgba(0, 0, 0, .1);
+    -o-box-shadow: 0 0px 2px 0 rgba(0, 0, 0, .1);
+}
+
+.shadowC {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 2px 10px 0px rgba(153, 153, 153, 0.15);
+    -webkit-box-shadow: 0px 2px 10px 0px rgba(153, 153, 153, 0.15);
+    -moz-box-shadow: 0px 2px 10px 0px rgba(153, 153, 153, 0.15);
+    -o-box-shadow: 0px 2px 10px 0px rgba(153, 153, 153, 0.15);
+}
+
+.shadowB:hover, .shadowC:hover {
+    box-shadow: 0 0 25px rgba(0, 0, 0, .08);
+    -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, .08);
+    -moz-box-shadow: 0 0 25px rgba(0, 0, 0, .08);
+    -o-box-shadow: 0 0 25px rgba(0, 0, 0, .08);
+}
+
+/*数据为空的填充*/
+.emptyBox {
+    color: #c5c5c5;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.emptyBox i {
+    display: block;
+    text-align: center;
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    font-size: 70px;
+    margin-bottom: 20px;
+    color: #eeeeee;
+}
+
+.emptyBox p {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 10px;
+}
+body{
+    color: #2c3e50;
+}

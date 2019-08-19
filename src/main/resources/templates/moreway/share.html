@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>公众号用户注册</title>
+</head>
+<style>
+    .one-title{
+        font: 35px/1.5 Arial, Helvetica,sans-serif;
+        font-weight: bold;
+    }
+    .two-title{
+        color: gray;
+        font-size: 15px;
+    }
+    #phone{
+        width: 250px;
+        height: 30px;
+        font-size: 20px;
+        border: 1px solid black;
+    }
+    #code{
+        width: 80px;
+        height: 25px;
+        font-size: 10px;
+        border: 1px solid black;
+    }
+    #userSubmit{
+        width: 180px;
+        height: 30px;
+        font-size: 20px;
+        background-color: peru;
+        margin-top: 1%;
+    }
+</style>
+<div th:include="include :: header"></div>
+<body>
+<div class="tit">
+    <p class="one-title">请您输入手机号</p>
+    <p class="two-title">为了方便取得联系,请输入您的常用手机号码</p><br/><br/>
+    <div class="tit_t">
+        <input type="text" id="phone" placeholder="手机号"><br/>
+        <input type="text" id="code" placeholder="验证码"><input type="button" id="getCode" value="获取验证码" onclick="getCode();"><br/>
+        <input type="button" id="userSubmit" value="下一步">
+    </div>
+</div>
+</body>
+
+<div th:include="include :: footer"></div>
+
+<script th:inline="javascript">
+    var result = [[${result}]];
+    $(function () {
+        util.ticket("jsapi");
+
+        wx.ready(function () {   //需在用户可能点击分享按钮前就先调用
+            /*wx.updateAppMessageShareData({
+                title: '分享注册', // 分享标题
+                desc: '分享授权页', // 分享描述
+                link: "https://www.cnovotech.com/moreway/v1?shareOpenId="+openid,
+                imgUrl: '', // 分享图标
+                success: function () {
+                    alert("点击了朋友")
+                }
+            });*/
+            wx.onMenuShareAppMessage({
+                title: '分享注册', // 分享标题
+                desc: '分享授权页', // 分享描述
+                link: "https://www.cnovotech.com/moreway/v1?shareOpenId="+result.openid, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                imgUrl: 'http://pic39.nipic.com/20140321/18063302_210604412116_2.jpg', // 分享图标
+                type: 'link', // 分享类型,music、video或link，不填默认为link
+                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                success: function (res) {
+                    alert("点击了朋友")
+                }
+            });
+            wx.onMenuShareQQ({
+                title: '', // 分享标题
+                desc: '', // 分享描述
+                link: "https://www.cnovotech.com/moreway/v1?shareOpenId="+result.openid, // 分享链接
+                imgUrl: '', // 分享图标
+                success: function () {
+                    alert("点击了qq")
+                },
+                cancel: function () {
+
+                }
+            });
+        });
+    });
+</script>
+
+</html>

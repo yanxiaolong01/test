@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base target="_self">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache,must-ridate">
+    <meta http-equiv="expires" content="0">
+    <title>
+        tab页切换
+    </title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <style type="text/css">
+    </style>
+</head>
+
+<body>
+<p style="display:none;">
+    1.参考网站：http://www.runoob.com/bootstrap/bootstrap-tab-plugin.html 2..fade增加淡入淡出效果；添加
+    .fade 到每个 .tab-pane 后面; 3.第一个标签页必须添加 .in 类，以便淡入显示初始内容;
+</p>
+<!-- tab标签 -->
+<ul id="myTab" class="nav nav-tabs">
+    <li class="active">
+        <a href="#home" data-toggle="tab">
+            Microsoft
+        </a>
+    </li>
+    <li>
+        <a href="#ios" data-toggle="tab">
+            NET CORE
+        </a>
+    </li>
+    <li class="dropdown">
+        <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown">
+            C#
+            <b class="caret">
+            </b>
+        </a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+            <li>
+                <a href="#jmeter" tabindex="-1" data-toggle="tab">
+                    EF
+                </a>
+            </li>
+            <li>
+                <a href="#ejb" tabindex="-1" data-toggle="tab">
+                    Docker
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>
+<!-- 每个tab页对应的内容 -->
+<div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade in active" id="home">
+        <p>
+            微软，是一家美国跨国科技公司，也是世界PC（Personal Computer，个人计算机）软件开发的先导，由比尔·盖茨与保罗·艾伦创办于1975年，公司总部设立在华盛顿州的雷德蒙德（Redmond，邻近西雅图）。以研发、制造、授权和提供广泛的电脑软件服务业务为主。
+        </p>
+    </div>
+    <div class="tab-pane fade" id="ios">
+        <p>
+            NET CORE 是一个由微软公司开发和发布的跨平台框架。
+        </p>
+    </div>
+    <div class="tab-pane fade" id="jmeter">
+        <p>
+            EF 是一款开源的ORM框架。
+        </p>
+    </div>
+    <div class="tab-pane fade" id="ejb">
+        <p>
+            Docker是一个创建高度可扩展性和强大的容器架构。
+        </p>
+    </div>
+</div>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js">
+</script>
+<script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js">
+</script>
+<script type="text/javascript">
+    $('#clglTab a[href="#ysplb"]').on('shown.bs.tab', function(e){
+    });
+    $('a[data-toggle="tab"]')
+
+    $('#myTab a[href="#profile"]').tab('show')
+
+    $('#myTab a:first').tab('show')
+    $('#myTab a:last').tab('show')
+
+    $('#myTab li:eq(2) a').tab('show')
+    $("xxx").on("shown.bs.tab", function(e){})
+</script>
+</body>
+
+</html>

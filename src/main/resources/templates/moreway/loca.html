@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>地理位置</title>
+</head>
+<style>
+    .one-title{
+        font: 35px/1.5 Arial, Helvetica,sans-serif;
+        font-weight: bold;
+    }
+    #userSubmit{
+        width: 180px;
+        height: 30px;
+        font-size: 20px;
+        background-color: peru;
+        margin-top: 1%;
+    }
+</style>
+<div th:include="include :: header"></div>
+<body>
+<!--<div class="tit">
+    <p class="one-title">初始化卡劵</p>
+    <input type="button" id="addCard" value="下一步">
+</div>-->
+</body>
+
+<div th:include="include :: footer"></div>
+
+<script th:inline="javascript">
+    var result = [[${result}]];
+    var openId = [[${openId}]];
+    $(function () {
+        util.ticket("jsapi");
+        wx.ready(function () {
+            wx.getLocation({
+                type: 'gcj02', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+                success: function (res) {
+                    var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+                    var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+                    var speed = res.speed; // 速度，以米/每秒计
+                    var accuracy = res.accuracy; // 位置精度
+                    wx.openLocation({
+                        latitude: latitude, // 纬度，浮点数，范围为90 ~ -90
+                        longitude: longitude, // 经度，浮点数，范围为180 ~ -180。
+                        name: '莫威信息技术有限公司', // 位置名
+                        address: '北京 莫威信息技术有限公司', // 地址详情说明
+                        scale: 15, // 地图缩放级别,整形值,范围从1~28。默认为最大
+                        infoUrl: '' // 在查看位置界面底部显示的超链接,可点击跳转
+                    });
+                }
+            });
+        })
+    })
+</script>
+
+</html>

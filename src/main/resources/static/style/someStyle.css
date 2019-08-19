@@ -1,0 +1,42 @@
+body {
+    min-width: 1260px
+}
+
+/*banner横条滚动*/
+@keyframes rowLeft-data-v-cdc04716 {
+    0% {
+        transform: translate3d(228px, 0, 0)
+    }
+    to {
+        transform: translate3d(-228px, 0, 0)
+    }
+}
+
+@keyframes rowRight-data-v-cdc04716 {
+    0% {
+        transform: translate3d(-228px, 0, 0)
+    }
+    to {
+        transform: translate3d(228px, 0, 0)
+    }
+}
+
+/*查看详情*/
+    .lookMessage{
+        display: inline-block;
+    }
+    .lookMessage::after{
+        transition: all .7s;
+        content: "";
+        display: inline-block;
+        width: 60%;
+        height: 4px;
+        background-color: #d0a635;
+    }
+.lookMessage:hover::after{
+    display: inline-block;
+    width: 100%;
+}
+.lookMessage:hover{
+    color: #d0a635;
+}

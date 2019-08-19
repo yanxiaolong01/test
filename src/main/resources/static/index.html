@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>公众号用户注册</title>
+</head>
+<style>
+    .one-title{
+        font-size: 100px;
+        font-weight: bold;
+    }
+</style>
+<body>
+<p class="one-title">您已经注册</p>
+</body>
+
+<div th:include="include :: footer"></div>
+
+<script th:inline="javascript">
+    $(function(){
+
+
+        $.get(ctx + "moreway/v1/ticket",function(ticket) {
+            var timestamp = Date.parse(new Date());
+            timestamp = timestamp / 1000;
+            console.log("time:", timestamp);
+            var u = uuid();
+            console.log("uuid:", u);
+            console.log("ticket: " + ticket);
+            var l = location.href.split('#')[0]
+            var stringTemp = "jsapi_ticket=" + ticket +
+                "&noncestr=" + u +
+                "×tamp=" + timestamp +
+                "&url=" + l;
+            var s = sha1(stringTemp);
+            console.log("sign:", s)
+            wx.config({
+                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: 'wx4aebe310e5078ee2', // 必填，公众号的唯一标识
+                timestamp: timestamp, // 必填，生成签名的时间戳
+                nonceStr: u, // 必填，生成签名的随机串
+                signature: s,// 必填，签名，见附录1
+                jsApiList: ["menuItem:share:appMessage","menuItem:share:timeline","menuItem:share:qq","startRecord", "stopRecord", "onVoiceRecordEnd", "playVoice", "pauseVoice", "stopVoice"
+                    , "onVoicePlayEnd", "uploadVoice", "downloadVoice", "chooseImage", "previewImage", "uploadImage", "downloadImage"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+            });
+            wx.ready(function () {   //需在用户可能点击分享按钮前就先调用
+                /*wx.updateAppMessageShareData({
+                    title: '测试', // 分享标题
+                    desc: '测试', // 分享描述
+                    link: 'https://www.cnovotech.com/', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                    imgUrl: '', // 分享图标
+                    success: function (data) {
+                        alert("点击了朋友")
+                    }
+                })*/
+                wx.onMenuShareAppMessage({
+                    title: '', // 分享标题
+                    desc: '', // 分享描述
+                    link: '', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                    imgUrl: '', // 分享图标
+                    type: '', // 分享类型,music、video或link，不填默认为link
+                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                    success: function () {
+                        alert("点击了朋友")
+                    }
+                });
+                wx.onMenuShareQQ({
+                    title: '', // 分享标题
+                    desc: '', // 分享描述
+                    link: '', // 分享链接
+                    imgUrl: '', // 分享图标
+                    success: function () {
+                        alert("点击了qq")
+                    },
+                    cancel: function () {
+
+                    }
+                });
+            });
+        })
+
+
+       /* function randomString(len) {
+            len = len || 32;
+            var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';    /!****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****!/
+            var maxPos = $chars.length;
+            var pwd = '';
+            for (i = 0; i < len; i++) {
+                pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+            }
+            return pwd;
+        }
+        wx.config({
+            debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: 'wx4aebe310e5078ee2', // 必填，公众号的唯一标识
+            timestamp: [[${dateStr}]], // 必填，生成签名的时间戳
+            nonceStr: [[${wx_tonken}]], // 必填，生成签名的随机串
+            signature: [[${str}]],// 必填，签名
+            jsApiList: ["System.currentTimeMillis()", "menuItem:share:timeline","menuItem:share:qq","menuItem:share:weiboApp"] // 必填，需要使用的JS接口列表
+        });
+        wx.ready(function () {   //需在用户可能点击分享按钮前就先调用
+            wx.updateAppMessageShareData({
+                title: '测试', // 分享标题
+                desc: '测试', // 分享描述
+                link: 'https://www.cnovotech.com/', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                imgUrl: '', // 分享图标
+                success: function (data) {
+                    // 设置成功
+                    console.log(data)
+                }
+            })
+        });
+       wx.checkJsApi({
+           jsApiList: ['chooseImage'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+           success: function(res) {
+               console.log(res.errMsg)
+               // 以键值对的形式返回，可用的api值true，不可用为false
+               // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
+           }
+       });*/
+    })
+</script>
+
+</html>

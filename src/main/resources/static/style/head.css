@@ -1,0 +1,84 @@
+.headNav{
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    z-index: 99999;
+    top: 0px;
+    background-color: transparent;
+    padding-bottom: 2px;
+}
+.backWhite{
+    background-color: #ffffff;
+    box-shadow:  0 0 15px #333333;
+}
+.head_left,.head_right{
+    position: absolute;
+    top: 0px;
+}
+.headNav>.head_left>a,.headNav>.head_right>a{
+    display: inline-block;
+    height: 60px;
+    line-height: 60px;
+}
+.headNav>.head_left>a>img{
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 1em;
+}
+.head_left{
+    left: 0px;
+}
+
+.head_right{
+    right: 0px;
+}
+.head_center{
+    text-align: center;
+    width: 1240px;
+   margin: 0 auto;
+}
+.head_center>ul{
+    text-align: center;
+}
+
+.nav_list>li{
+    float: none;
+    display: inline-block;
+}
+.nav_list>li>a{
+    display: inline-block;
+    padding: 0px 15px;
+    line-height: 60px;
+    color: #ffffff;
+}
+.nav_list>li>a:hover{
+    line-height: 57px;
+    border-bottom: 2px solid #ffffff;
+}
+.nav_list{
+    height: 60px;
+    width: 1240px;
+    position: relative;
+}
+.enable_item{
+    line-height: 57px!important;
+    border-bottom: 2px solid #ffffff;
+    background-color: rgba(0,0,0,.1);
+
+}
+.enable_item1{
+    border-bottom: 2px solid #409EFF!important;
+    background-color: transparent!important;
+}
+.head_right>a{
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    padding-right: 1em;
+}
+.head_right>a[class='iponeColor']{
+    color: #333333!important;
+}
+.fontColor{
+    color: inherit!important;
+}

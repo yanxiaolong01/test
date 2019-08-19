@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>初始化卡劵</title>
+</head>
+<style>
+    .one-title{
+        font: 35px/1.5 Arial, Helvetica,sans-serif;
+        font-weight: bold;
+    }
+    #userSubmit{
+        width: 180px;
+        height: 30px;
+        font-size: 20px;
+        background-color: peru;
+        margin-top: 1%;
+    }
+</style>
+<div th:include="include :: header"></div>
+<body>
+<!--<div class="tit">
+    <p class="one-title">初始化卡劵</p>
+    <input type="button" id="addCard" value="下一步">
+</div>-->
+</body>
+
+<div th:include="include :: footer"></div>
+
+<script th:inline="javascript">
+    var result = [[${result}]];
+    var openId = [[${openId}]];
+    $(function () {
+        util.ticket("jsapi");
+        $.get(ctx + "moreway/v1/ticket", {"type": "wx_card"}, function (data) {
+            var ticket = data.jsTicket;
+            wx.ready(function () {
+                //添加卡券
+                var timestamp = Date.parse(new Date());
+                timestamp = timestamp / 1000;
+                var u = util.uuid();
+                $.get(ctx + "moreway/v1/sort", {"ticket": ticket,"timestamp":timestamp,"cardId":"p2xPhw-TdPsFgrD5U4tc6D1WA0vs","nonceStr":u}, function (data) {
+                    wx.addCard({
+                        cardList: [
+                            {
+                                cardId: "p2xPhw-TdPsFgrD5U4tc6D1WA0vs",
+                                cardExt: '{"openid":"' + openId + '",' +
+                                    '"timestamp":"' + timestamp + '",' +
+                                    '"nonce_str":"' + u + '",' +
+                                    '"signature":"' + data + '"}'
+                            }
+                        ],
+                        success: function (res) {
+                            alert('已添加卡券：' + JSON.stringify(res));
+                        }
+                    });
+                })
+            });
+        })
+    })
+</script>
+
+</html>
