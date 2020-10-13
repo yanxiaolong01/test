@@ -41,7 +41,7 @@
 		<commons-lang3.version>3.5</commons-lang3.version>
 		<common-lang.version>2.6</common-lang.version>
 		<zxing.version>2.2</zxing.version>
-		<junit.version>4.11</junit.version>
+		<junit.version>4.13.1</junit.version>
 		<httpclient.version>4.5.2</httpclient.version>
 		<httpcore.version>4.4.6</httpcore.version>
 		<swagger-ui.version>2.5.0</swagger-ui.version>
